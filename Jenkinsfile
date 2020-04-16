@@ -17,7 +17,7 @@ pipeline {
 	stage("Docker push") {
      steps {
    
-	sh "docker push https://bootcampyyz.jfrog.io/artifactory/bootcamp-repo/marslander"
+	sh "docker push bootcampyyz.jfrog.io/artifactory/bootcamp-repo"
      }
 }
     }
