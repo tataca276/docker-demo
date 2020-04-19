@@ -23,7 +23,7 @@ pipeline {
 		steps{
 		    rtServer ( 
 			id: "Art-Server",
-			credentialsId: artifactory
+			credentialsId: "artifactory"
 		    )    
 		}
 	    }
