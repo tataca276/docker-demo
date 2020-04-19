@@ -21,7 +21,7 @@ pipeline {
 */	    
 	    stage("Artifactory configuration"){
 		steps{
-		    rtserver ( 
+		    rtServer ( 
 			id: "Art-Server"
 			
 		    )    
