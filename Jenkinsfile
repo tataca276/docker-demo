@@ -30,16 +30,15 @@ pipeline {
 	stage("Docker push") {
      	     steps {
 	 	script{
-  	    	docker.build("bootcampyyz-bootcampdockerhub.jfrog.io/artifactory/bootcampdockerhub/bootcampapp:v1")
+  	    	    docker.build("bootcampyyz-bootcampdockerhub.jfrog.io/artifactory/bootcampdockerhub/bootcampapp:v1")
+		}
 	     }
-	rtDockerPush(
-	    servierId: "Art-Server",
-	    image: "bootcampyyz-bootcampdockerhub.jfrog.io/artifactory/bootcampdockerhub/bootcampapp:v1",
-	    targetRepo: 'https://bootcampyyz.jfrog.io/artifactory/bootcampdockerhub'
+	    rtDockerPush(
+	        servierId: "Art-Server",
+	        image: "bootcampyyz-bootcampdockerhub.jfrog.io/artifactory/bootcampdockerhub/bootcampapp:v1",
+	        targetRepo: 'https://bootcampyyz.jfrog.io/artifactory/bootcampdockerhub'
 		
-	)
+	    )
 	}
      }
-}
-    }
 }
