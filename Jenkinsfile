@@ -1,4 +1,5 @@
 pipeline {
+    
     agent any
     stages {
 	stage("Checkout"){
@@ -14,10 +15,19 @@ pipeline {
             }
         }
 	    
+	stage('Artifactory Config'){
+	    steps{
+	        rtserver(
+		    id: "Art-Servre"
+		    url: "https://bootcampyyz.jfrog.io/artifactory/bootcamp-repo/"
+		    credentialsId: artifactory
+		)	
+	    }		
+	}	    
 	stage("Docker push") {
      steps {
    
-	sh "docker push bootcampyyz.jfrog.io/artifactory/bootcamp-repo"
+	sh "docker push bootcampyyz-bootcampdockerhub.jfrog.io/artifactory/bootcamp-repo"
      }
 }
     }
