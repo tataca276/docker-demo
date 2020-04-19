@@ -3,7 +3,7 @@ pipeline {
     agent any
     environment{	
 	rtserver = Artifactory.server "Art-Server"
-	rtDocker = Artifactory.docker server: rtserver
+	rtDocker = Artifactory.docker server: $(rtserver)
 		  //  credentialsId: artifactory	
    }	    
 
@@ -25,7 +25,7 @@ pipeline {
      steps {
 	script{
   	    docker.build("bootcampyyz-bootcampdockerhub.jfrog.io/artifactory/bootcampdockerhub/bootcampapp:v1");
-	    rtDocker.push 'https://bootcampyyz-bootcampdockerhub.jfrog.io/artifactory/bootcampdockerhub/bootcampapp:v1', 'https://bootcampyyz.jfrog.io/artifactory/bootcampdockerhub'
+	    $(rtDocker).push 'https://bootcampyyz-bootcampdockerhub.jfrog.io/artifactory/bootcampdockerhub/bootcampapp:v1', 'https://bootcampyyz.jfrog.io/artifactory/bootcampdockerhub'
 	}
      }
 }
