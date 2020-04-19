@@ -34,7 +34,7 @@ pipeline {
 		}
 	     
 	        rtDockerPush(
-	            servierId: "Art-Server",
+	            serverId: "Art-Server",
 	            image: "bootcampyyz-bootcampdockerhub.jfrog.io/artifactory/bootcampdockerhub/bootcampapp:v1",
 	            targetRepo: 'https://bootcampyyz.jfrog.io/artifactory/bootcampdockerhub'
 		
