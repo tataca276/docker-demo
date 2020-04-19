@@ -20,7 +20,7 @@ pipeline {
 	        def rtserver = Artifactory.server "Art-Server"
 		def rtDocker = Artifactory.docker server: rtserver
 		  //  credentialsId: artifactory
-		)	
+		
 	    }		
 	}	    
 	stage("Docker push") {
