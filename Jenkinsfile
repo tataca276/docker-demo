@@ -2,7 +2,7 @@ pipeline {
     
     agent any
 /*    environment{	
-		  //  credentialsId: artifactory	
+		  //  	
    }*/	    
 
     stages {
@@ -22,8 +22,8 @@ pipeline {
 	    stage("Artifactory configuration"){
 		steps{
 		    rtServer ( 
-			id: "Art-Server"
-			
+			id: "Art-Server",
+			credentialsId: artifactory
 		    )    
 		}
 	    }
