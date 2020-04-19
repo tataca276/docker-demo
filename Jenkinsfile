@@ -1,6 +1,12 @@
 pipeline {
     
     agent any
+    environment{	
+	rtserver = Artifactory.server "Art-Server"
+	rtDocker = Artifactory.docker server: rtserver
+		  //  credentialsId: artifactory	
+   }	    
+
     stages {
 	stage("Checkout"){
 	    steps{
@@ -15,14 +21,6 @@ pipeline {
             }
         }
 */	    
-	stage('Artifactory Config'){
-	    steps{
-	        def rtserver = Artifactory.server "Art-Server"
-		def rtDocker = Artifactory.docker server: rtserver
-		  //  credentialsId: artifactory
-		
-	    }		
-	}	    
 	stage("Docker push") {
      steps {
   	def testImg = docker.build("https://bootcampyyz-bootcampdockerhub.jfrog.io/artifactory/bootcampdockerhub/bootcampapp:v1");
