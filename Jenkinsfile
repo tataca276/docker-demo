@@ -17,10 +17,9 @@ pipeline {
 */	    
 	stage('Artifactory Config'){
 	    steps{
-	        rtserver(
-		    id: "Art-Servre"
-		    url: "https://bootcampyyz.jfrog.io/artifactory/bootcampdockerhub/"
-		    credentialsId: artifactory
+	        def rtserver = Artifactory.server "Art-Server"
+		def rtDocker = Artifactory.docker server: rtserver
+		  //  credentialsId: artifactory
 		)	
 	    }		
 	}	    
