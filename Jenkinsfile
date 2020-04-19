@@ -23,7 +23,7 @@ pipeline {
 */	    
 	stage("Docker push") {
      steps {
-  	def testImg = docker.build("https://bootcampyyz-bootcampdockerhub.jfrog.io/artifactory/bootcampdockerhub/bootcampapp:v1");
+  	docker.build("https://bootcampyyz-bootcampdockerhub.jfrog.io/artifactory/bootcampdockerhub/bootcampapp:v1");
 	rtserver.push("https://bootcampyyz-bootcampdockerhub.jfrog.io/artifactory/bootcampdockerhub/bootcampapp:v1", "https://bootcampyyz.jfrog.io/artifactory/bootcampdockerhub")
      }
 }
